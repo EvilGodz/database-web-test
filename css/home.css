@@ -1,0 +1,664 @@
+@font-face {
+    font-family: 'Gymno';
+    src: url('fonts/Gymno.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gymno', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; 
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    height: 60px; 
+    z-index: 1;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* จัดคำว่า Home ให้อยู่ตรงกลาง */
+    font-size: 30px;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center; /* ทำให้ content อยู่ตรงกลาง */
+    padding: 20px;
+    max-width: 700px;
+    margin: 70px auto 0 auto; /* เพิ่ม margin-top เพื่อเว้นที่ให้ header */
+}
+
+/* Sidebar */
+aside {
+    width: 250px;
+    margin-right: 20px;
+}
+
+.post-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+
+.friends-list {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.friends-list h3 {
+    margin-bottom: 10px;
+}
+
+.friends-list ul {
+    list-style: none;
+}
+
+.friends-list li {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.online {
+    background-color: green;
+}
+
+.offline {
+    background-color: gray;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+}
+
+.new-thread {
+    margin-bottom: 20px;
+}
+
+.new-thread input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Post Styling */
+.post {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* User Info */
+.user-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.user-avatar {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+
+.post-time {
+    color: gray;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+/* Post Content */
+post-content{
+    display: block;
+}
+
+/* Post Footer */
+.post-footer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+/* Post Action */
+.post-action {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนแปลง */
+}
+
+.post-action svg {
+    margin-right: 5px;
+}
+
+/* เมื่อเอาเม้าส์ไปชี้ที่ Like, Comment, Share */
+.post-action:hover {
+    transform: scale(1.1); /* ขยายขนาดเล็กน้อยเมื่อเอาเม้าส์ไปชี้ */
+}
+
+/* Post Options (3 dots) */
+.post-options {
+    position: relative;
+}
+
+.post-options .dots {
+    font-size: 24px;
+    color: #333;
+}
+
+.post-options-menu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: none;
+    width: 100px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-options:hover .post-options-menu {
+    display: block;
+}
+
+.post-options-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0;
+}
+
+.post-options-menu ul li {
+    padding: 5px;
+    cursor: pointer;
+    color: #333;
+}
+
+.post-options-menu ul li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Table styling */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* User details inside the table */
+.user-details {
+    display: flex;
+    align-items: center;
+}
+
+/* Right options (dots and time alignment) */
+.right-options {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.post-time {
+    color: gray;
+    font-size: 14px;
+}
+
+
+
+/* Post Image */
+.post-image img {
+    display: block;
+    margin: 10px auto;
+    max-width: 100%;
+    height: auto;
+}
+.like-button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    display: flex;
+    text-decoration: none;
+}
+.like-count {
+    display: inline;
+    align-items: center;
+}
+.center {
+    align-self: center;
+}
+
+/* Sidebar Icons */
+.sidebar-icons {
+    position: fixed;
+    top: 50%;
+    left: 20px; /* ระยะห่างจากขอบซ้าย */
+    background-color: #fff;
+    border-radius: 50px;
+    opacity: 0.5;
+    transform: translateY(-50%); /* ทำให้ไอคอนอยู่ตรงกลางแนวตั้ง */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* ระยะห่างระหว่างไอคอน */
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar-icons:hover{
+    opacity: 1;
+    transition: transform 0.3s ease, filter 0.3s ease; /* เพิ่มเอฟเฟกต์เปลี่ยนแปลง */
+
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    /* transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); ทำให้เด้งแรงขึ้น */
+}
+
+.icon img {
+    width: 30px;
+    cursor: pointer;
+    filter: invert(75%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(90%) contrast(95%);
+    transition: filter 0.3s ease; 
+}
+
+.icon:not(#add):hover {
+    background-color: #ededed; 
+    border-radius: 50%; 
+    transform: scale(1.1);
+}
+
+.icon:not(#add):hover img {
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+#add {
+    background-color: #dfdfdf; /* พื้นหลังเริ่มต้น */
+    border-radius: 50%; 
+}
+
+#add:hover img {
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+/* ปกติ */
+#home img {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+/* เมื่อไอคอน Home อยู่ในสถานะ active */
+#home.active img {
+    filter: none; /* แสดงสีปกติ (ไม่มี filter) */
+    color: #3498db; /* สามารถเพิ่มสีถ้าต้องการ */
+}
+
+/* เมื่อเอาเม้าส์ไปชี้ไอคอน Home */
+#home:hover img {
+    filter: none; /* กลับไปเป็นสีปกติเมื่อชี้เม้าส์ */
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    aside {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .new-thread input {
+        width: 100%;
+    }
+
+    .post {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+
+.comment-section {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+
+.comment-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.submit-comment {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+}
+.submit-comment:hover {
+    background-color: #0056b3; /* เปลี่ยนสีพื้นหลังให้เข้มขึ้น */
+
+}
+
+.comments {
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 5px;
+}
+.comment-header {
+    display: flex;
+    margin-bottom: -15px;
+    justify-content: space-between; /* Space out username and post options */
+    width: 100%; /* Ensure full width to accommodate spacing */
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    margin-right: auto;
+    margin-bottom: 10px;
+    padding-bottom: 10px; /* Add padding for better spacing */
+}
+
+.comment-details {
+    display: flex;
+    width: 100%;
+    flex-direction: column; /* Stack username and comment text */
+}
+
+.img-profile-coment {
+    border-radius: 50%; /* Makes the image circular */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.username-coment {
+    font-weight: bold;
+}
+
+.comment-text {
+    margin-top: 5px;
+    color: #333; /* Adjust color as needed */
+    width: 95%;
+    
+}
+.dots {
+    position: relative;
+}
+
+.dots-comment {
+    position: relative;
+}
+
+.dots-comment .dots {
+    font-size: 24px; /* Size of the dots */
+    color: #333; /* Color of the dots */
+    cursor: pointer; /* Change cursor to pointer */    
+}
+
+.dots-comment-menu {
+    position: absolute; /* Position the dropdown relative to the dots */
+    top: 30px; /* Adjust as necessary */
+    right: 0; /* Align to the right */
+    background-color: #fff; /* Background color for the menu */
+    border: 1px solid #ddd; /* Border for the menu */
+    border-radius: 5px; /* Rounded corners */
+    display: none; /* Initially hidden */
+    width: 100px; /* Width of the dropdown */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    z-index: 3;
+
+}
+
+.dots-comment:hover .dots-comment-menu {
+    display: block; /* Show the menu on hover */
+}
+
+.dots-comment-menu ul {
+    list-style-type: none; /* Remove default list styles */
+    margin: 0; /* Reset margin */
+    padding: 5px 0; /* Padding for the menu */
+}
+
+.dots-comment-menu ul li {
+    padding: 5px; /* Padding for each menu item */
+    cursor: pointer; /* Pointer cursor on hover */
+    color: #333; /* Color for menu items */
+}
+
+.dots-comment-menu ul li:hover {
+    background-color: #f5f5f5; /* Highlight background on hover */
+}
+
+/* ส่วนของ การ add กระทู้ */
+/* ส่วนของ การ add กระทู้ */
+/* ส่วนของ การ add กระทู้ */
+
+/* CSS สำหรับป๊อปัป */
+.popup_addpost {
+    display: none; /* ซ่อนป๊อปอัปเริ่มต้น */
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-content_addpost {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px; /* เพิ่มมุมมน */
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.close_addpost {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close_addpost:hover,
+.close_addpost:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.user-info_addpost {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่างโปรไฟล์และ textarea */
+}
+
+.profile-image_addpost {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+h2 {
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+.title-container_addpost {
+    margin-bottom: 10px;
+}
+
+.title-input_addpost {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.textarea-container_addpost {
+    width: 100%;
+    display: flex; /* ใช้ flexbox */
+    justify-content: center; /* จัดกลางในแนวนอน */
+    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่าง textarea กับไอคอน */
+}
+
+.message-input_addpost {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    resize: none;
+}
+
+.icon-container_addpost {
+    display: flex;
+    justify-content: space-between; 
+    /* margin-bottom: 20px; */
+}
+
+.icon_addpost {
+    filter: invert(60%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(85%);
+    padding: 7px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon_addpost:hover {
+    transform: scale(1.2);
+    filter: invert(0%) sepia(100%) saturate(100%) hue-rotate(190deg) brightness(95%) contrast(85%);
+}
+
+.btn-post_addpost {
+    padding: 10px 20px;
+    background-color: #0099ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 8px;
+    display: block;
+    margin-left: auto;
+}
+
+.btn-post_addpost:hover {
+    background-color: #007acc; /* เปลี่ยนสีเมื่อ hover */
+}
+
+/* ส่วนสำหรับแสดงโพสต์ */
+.posts-container_addpost {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.post_addpost {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-title_addpost {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.post-message_addpost {
+    font-size: 16px;
+    color: #555;
+}
+
+

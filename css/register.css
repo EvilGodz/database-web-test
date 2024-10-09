@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gymno', sans-serif;
+    font-size: 20px;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden; /* ป้องกันการเลื่อนหน้าจอ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../img/background1.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.modal {
+    background-color: white;
+    border-radius: 15px;
+    padding: 5.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 48rem;
+    position: relative;
+    z-index: 999;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 3rem;
+    font-family: 'Gymno', sans-serif;
+}
+
+input, label {
+    display: block;
+    width: 100%;
+}
+
+label {
+    text-align: left;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+input[type="email"], input[type="password"] {
+    width: 100%;
+}
+
+/* Checkbox styling */
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.custom-checkbox input {
+    margin-right: 10px;
+}
+
+
+.custom-checkbox a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.custom-checkbox a:hover {
+    text-decoration: underline;
+}
+
+.signup-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 50%;
+}
+
+.signup-btn:hover {
+    background-color: #2980b9; /* สีฟ้าเข้มเมื่อเมาส์ชี้ */
+}
+
+/* ซ่อนกล่องติ๊กถูกเริ่มต้น */
+.custom-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* สร้างกล่องติ๊กถูกใหม่ */
+.custom-checkbox label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 25px; /* เว้นที่ด้านซ้ายเพื่อให้กล่องติ๊กถูกปรากฏ */
+    cursor: pointer;
+    color: #919191;
+}
+
+/* รูปแบบของกล่องติ๊กถูก */
+.custom-checkbox label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #fff; /* สีพื้นหลังของกล่องติ๊กถูก */
+    border: 2px solid #333; /* สีของขอบกล่องติ๊กถูก */
+    border-radius: 5px; /* มุมโค้งมน */
+}
+
+/* เปลี่ยนลักษณะเมื่อถูกเลือก */
+.custom-checkbox input[type="checkbox"]:checked + label::before {
+    background-color: #333; /* เปลี่ยนสีพื้นหลังเป็นสีดำเมื่อเลือก */
+    border: 2px solid #333; /* สีของขอบกล่องติ๊กถูกเมื่อเลือก */
+}
+
+/* เพิ่มสัญลักษณ์ติ๊กถูกเมื่อเลือก */
+.custom-checkbox input[type="checkbox"]:checked + label::after {
+    content: "\2714"; /* Unicode สำหรับเครื่องหมายติ๊กถูก */
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    font-size: 18px;
+    color: #fff; /* สีของติ๊กถูก */
+}
+
+/* ข้อมูลเพิ่มเติมเช่น captcha */
+.captcha-info {
+    color: #919191;
+}
+
+.custom-checkbox a:hover {
+    text-decoration: none; /* เอาเส้นใต้ของลิงก์ออกเมื่อวางเมาส์เหนือ */
+}
+
+#gg {
+    display: flex; /* ใช้ flexbox */
+    justify-content: space-between; /* จัดระยะห่างระหว่าง input fields */
+}
+
+.input-field {
+    flex: 1; /* ให้ input fields มีขนาดเท่ากัน */
+    margin-right: 10px; /* ระยะห่างระหว่าง First Name และ Last Name */
+}
+
+.input-field:last-child {
+    margin-right: 0; /* ลบระยะห่างด้านขวาสำหรับ input field สุดท้าย */
+}
+
+label {
+    text-align: left;
+    margin-bottom: 5px; /* ระยะห่างด้านล่าง */
+}
+
+
+section{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1; /* อยู่ด้านหลัง */
+    background: #00b4ff;
+    overflow: hidden;
+}
+
+section .wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('../img/wave.png');
+    background-size: 1000px 100px;
+
+}
+
+section .wave.wave1 {
+    animation: animate 10s linear infinite; /* ปรับเวลาเป็น 10 วินาที */
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+
+}
+
+section .wave.wave2 {
+    animation: animate2 7s linear infinite; /* ปรับเวลาเป็น 7 วินาที */
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+
+section .wave.wave3 {
+    animation: animate 7s linear infinite; /* ปรับเวลาเป็น 7 วินาที */
+    z-index: 998;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+
+section .wave.wave4 {
+    animation: animate2 10s linear infinite; /* ปรับเวลาเป็น 10 วินาที */
+    z-index: 997;
+    opacity: 0.7;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+
+
+@keyframes animate{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}
+@keyframes animate2{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -1000px;
+    }
+}
+

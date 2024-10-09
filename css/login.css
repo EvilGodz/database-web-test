@@ -1,0 +1,261 @@
+@font-face {
+    font-family: 'Gymno';
+    src: url('fonts/Gymno.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gymno', sans-serif;
+    font-size: 20px;
+    }
+    
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    background-size: cover;
+    background-position: center;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+    height: 100%; 
+    z-index: 999;
+}
+
+.login-box {
+    background-color: white;
+    padding: 5.5rem;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 48rem;
+    /* height: 50rem; */
+}
+
+.login-box h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 1em;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.login-btn {
+    width: 40%;
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    align-items: center;
+    margin:  auto; /* ทำให้ปุ่มอยู่ตรงกลาง */
+    display: block; /* เปลี่ยนเป็น block เพื่อใช้ margin auto */
+    margin-bottom: 1rem;
+}
+
+.login-btn:hover {
+    background-color: #2980b9;
+}
+
+.options {
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 1rem;
+}
+
+.options a {
+    font-size: 12px;
+    color: #666;
+    text-decoration: none;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+
+.remember-me {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
+}
+
+a {
+    color: black; /* กำหนดสีของลิงก์เป็นสีดำ */
+    text-decoration: none; /* นำเส้นใต้ของลิงก์ออก */
+}
+
+ .passhi {
+    margin-bottom: 1.5rem; /* เว้นที่ด้านล่างของกล่องรหัสผ่าน */
+}
+
+.password-group {
+    position: relative; /* เพื่อให้ปุ่ม Hide อยู่ภายในกล่องรหัสผ่าน */
+}
+
+.password-group input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* เว้นที่ด้านขวาสำหรับปุ่ม Hide */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#Hide {
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    position: absolute;
+    right: 10px; /* ปรับค่าตามต้องการ */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px; /* ปรับขนาดของไอคอนและข้อความให้พอดี */
+}
+
+#Hide:hover {
+    color: #666;
+}
+
+
+/* Hide default checkbox */
+.custom-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.custom-checkbox label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Create the custom checkbox appearance */
+.custom-checkbox label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #fff; /* สีพื้นหลังของกล่องติ๊กถูก */
+    border: 2px solid #333; /* สีของขอบกล่องติ๊กถูก */
+    border-radius: 5px; /* มุมโค้งมน */
+}
+
+/* Change appearance when checked */
+.custom-checkbox input[type="checkbox"]:checked + label::before {
+    background-color: #333; /* เปลี่ยนสีพื้นหลังเป็นสีดำเมื่อเลือก */
+    border: 2px solid #333; /* สีของขอบกล่องติ๊กถูกเมื่อเลือก */
+}
+
+.custom-checkbox input[type="checkbox"]:checked + label::after {
+    content: "\2714"; /* Unicode character for a checkmark */
+    position: absolute;
+    left: 3px;
+    top: 1;
+    font-size: 18px;
+    color: #fff; /* สีของติ๊กถูก */
+}
+
+.captcha-info{
+    color: #919191;
+}
+
+
+
+section{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 1; /* อยู่ด้านหลัง */
+    background: #00b4ff;
+    overflow: hidden;
+}
+
+section .wave{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('../img/wave.png');
+    background-size: 1000px 100px;
+
+}
+
+section .wave.wave1 {
+    animation: animate 10s linear infinite; /* ปรับเวลาเป็น 10 วินาที */
+    z-index: 1000;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0;
+
+}
+
+section .wave.wave2 {
+    animation: animate2 7s linear infinite; /* ปรับเวลาเป็น 7 วินาที */
+    z-index: 999;
+    opacity: 0.5;
+    animation-delay: -5s;
+    bottom: 10px;
+}
+
+section .wave.wave3 {
+    animation: animate 7s linear infinite; /* ปรับเวลาเป็น 7 วินาที */
+    z-index: 998;
+    opacity: 0.2;
+    animation-delay: -2s;
+    bottom: 15px;
+}
+
+section .wave.wave4 {
+    animation: animate2 10s linear infinite; /* ปรับเวลาเป็น 10 วินาที */
+    z-index: 997;
+    opacity: 0.7;
+    animation-delay: -5s;
+    bottom: 20px;
+}
+
+
+@keyframes animate{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: 1000px;
+    }
+}
+@keyframes animate2{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -1000px;
+    }
+}
+
